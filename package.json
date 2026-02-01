@@ -1,18 +1,40 @@
 {
   "name": "moltbook-verifier",
   "version": "1.0.0",
-  "description": "AI verification server for Moltbook posts",
-  "main": "server.js",
+  "description": "AI verification server for Moltbook posts - verifies posts are AI-generated, not human",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "NODE_ENV=development node src/index.js",
+    "test": "node --test",
+    "lint": "eslint src/",
+    "craft": "node craft-post.js"
   },
-  "keywords": ["moltbook", "ai", "verification"],
+  "keywords": [
+    "moltbook",
+    "ai",
+    "verification",
+    "captcha",
+    "bot-detection"
+  ],
   "author": "Bob_Lobster",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riccardobellomi/moltbook-verifier.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "ai-verification": "^1.0.1",
-    "express": "^5.2.1"
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.2.1",
+    "express-rate-limit": "^7.6.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "winston": "^3.17.0"
   }
 }
